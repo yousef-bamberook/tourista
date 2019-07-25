@@ -3,7 +3,24 @@
 {% block title %}List{% endblock title %}
 
 {% block content %}
-<br>
+  <br>
+<dir class="row">
+  {% for destination in destinations %}
+  <div calss="col-sm-12 col-md-6 col-lg-4">
+    <div class="card" style="width: 18rem;">
+      <img src="{{destination.pretty_picture.url}}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{destination.name}}</h5>
+        <p class="card-text">{{destination.activities}}</p>
+        <a href="{% url 'destination-detail' destination.id %}" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</dir>
+{% endblock content %}
+
+<!--
 <div class="row">
   {% for destination in destinations %}
   <a href="{% url 'destination-detail' destination.id %}">
@@ -12,5 +29,4 @@
     <p>{{destination.activities}}</p>
   </a>
   {% endfor %}
-</div>
-{% endblock content %}
+</div>-->
